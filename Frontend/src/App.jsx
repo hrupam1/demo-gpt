@@ -12,6 +12,7 @@ function App() {
   const [prevChats, setPrevChats] = useState([]); //stores all chats of curr threads
   const [newChat, setNewChat] = useState(true);
   const [allThreads, setAllThreads] = useState([]);
+  const [sidebarOpen, setSidebarOpen] = useState(false);
 
   const providerValues = {
     prompt, setPrompt,
@@ -19,13 +20,15 @@ function App() {
     currThreadId, setCurrThreadId,
     newChat, setNewChat,
     prevChats, setPrevChats,
-    allThreads, setAllThreads
+    allThreads, setAllThreads,
+    sidebarOpen, setSidebarOpen
   }; 
 
   return (
-    <div className='app'>
+    <div className={`app ${sidebarOpen ? 'sidebar-active' : ''}`}>
       <MyContext.Provider value={providerValues}>
           <Sidebar></Sidebar>
+          <div className="sidebarOverlay" onClick={() => setSidebarOpen(false)}></div>
           <ChatWindow></ChatWindow>
         </MyContext.Provider>
     </div>

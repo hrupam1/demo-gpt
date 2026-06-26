@@ -4,7 +4,7 @@ import { MyContext } from "./MyContext.jsx";
 import {v1 as uuidv1} from "uuid";
 
 function Sidebar() {
-    const {allThreads, setAllThreads, currThreadId, setNewChat, setPrompt, setReply, setCurrThreadId, setPrevChats} = useContext(MyContext);
+    const {allThreads, setAllThreads, currThreadId, setNewChat, setPrompt, setReply, setCurrThreadId, setPrevChats, sidebarOpen, setSidebarOpen} = useContext(MyContext);
 
     const getAllThreads = async () => {
         try {
@@ -29,10 +29,12 @@ function Sidebar() {
         setReply(null);
         setCurrThreadId(uuidv1());
         setPrevChats([]);
+        setSidebarOpen(false);
     }
 
     const changeThread = async (newThreadId) => {
         setCurrThreadId(newThreadId);
+        setSidebarOpen(false);
 
         try {
             const response = await fetch(`/api/thread/${newThreadId}`);
@@ -65,7 +67,7 @@ function Sidebar() {
     }
 
     return (
-        <section className="sidebar">
+        <section className={`sidebar ${sidebarOpen ? "open" : ""}`}>
             <button className="newChatBtn" onClick={createNewChat}>
                 <span>New Chat</span>
                 <i className="fa-solid fa-pen-to-square"></i>

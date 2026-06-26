@@ -217,3 +217,55 @@ input::placeholder {
 .dropDownItem:hover i {
     color: #a78bfa;
 }
+
+.navbarLeft {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.menuBtn {
+    display: none;
+    background: transparent;
+    border: none;
+    color: #a0aec0;
+    font-size: 20px;
+    cursor: pointer;
+    padding: 8px;
+    margin-right: 4px;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+    outline: none;
+}
+
+.menuBtn:hover {
+    color: #f1f5f9;
+    background: rgba(255, 255, 255, 0.05);
+}
+
+@media (max-width: 768px) {
+    .menuBtn {
+        display: block;
+    }
+    
+    .chatInput {
+        padding: 0 16px 16px 16px;
+    }
+    
+    .inputBox {
+        border-radius: 12px;
+    }
+    
+    input {
+        padding: 12px 48px 12px 14px;
+        font-size: 13.5px;
+    }
+    
+    #submit {
+        right: 6px;
+        height: 32px;
+        width: 32px;
+        font-size: 14px;
+        border-radius: 8px;
+    }
+}

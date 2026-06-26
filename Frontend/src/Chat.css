@@ -194,3 +194,37 @@
     max-width: 400px;
     line-height: 1.5;
 }
+
+@media (max-width: 768px) {
+    .chats {
+        padding: 16px 16px 80px 16px;
+        gap: 16px;
+    }
+    
+    .userMessage {
+        max-width: 90%;
+        padding: 10px 16px;
+        font-size: 13.5px;
+    }
+    
+    .gptMessage {
+        max-width: 100%;
+        padding: 14px;
+        font-size: 13.5px;
+    }
+    
+    .welcomeContainer h1 {
+        font-size: 20px;
+        text-align: center;
+    }
+    
+    .welcomeContainer p {
+        font-size: 13px;
+    }
+    
+    .welcomeIcon {
+        font-size: 28px;
+        padding: 12px;
+        margin-bottom: 16px;
+    }
+}
