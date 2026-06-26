@@ -27,6 +27,7 @@ app.use(async (req, res, next) => {
 });
 
 app.use("/api", chatRoutes);
+app.use("/", chatRoutes);
 
 if (process.env.NODE_ENV !== "production") {
     app.listen(PORT, () => {
